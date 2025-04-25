@@ -27,7 +27,7 @@ def modify_pdf(filename, cpf, position, color, upload_folder):
     print( f"Draw of cpf in position: {x}, {y}")
 
     canv.setFillColor(color)
-    canv.setFont("Helvetica", 12)
+    canv.setFont("Helvetica", 10)
     canv.drawString(x, y, cpf)
     canv.save()
 
