@@ -18,7 +18,7 @@ def modify_pdf(filename, cpf, position, color, upload_folder):
     elif position == 'bottom-left':
         x = 50
         y = 50
-    elif position == 'bottom right':
+    elif position == 'bottom-right':
         x = 500
         y = 50
     else:
@@ -27,7 +27,7 @@ def modify_pdf(filename, cpf, position, color, upload_folder):
     print( f"Draw of cpf in position: {x}, {y}")
 
     canv.setFillColor(color)
-    canv.setFont("helvetica", 12)
+    canv.setFont("Helvetica", 12)
     canv.drawString(x, y, cpf)
     canv.save()
 
@@ -45,7 +45,7 @@ def modify_pdf(filename, cpf, position, color, upload_folder):
         output = PdfWriter()
         print(f"Number of pages is:  {len(existing_pdf.pages)}")
         for i in range(len(existing_pdf.pages)):
-            page = existing_pdf.page[i]
+            page = existing_pdf.pages[i]
             page.merge_page(new_pdf.pages[0])
             output.add_page(page)
         with open(os.path.join(upload_folder, filename), "wb") as outputStream:
